@@ -14,8 +14,11 @@ namespace BattleShip
         static void Main(string[] args)
         {
             Console.Title = "BattleShip and Bombs!";
-            Console.SetWindowSize(80, 25);
-            Console.SetBufferSize(80, 25);
+            if (OperatingSystem.IsWindows())
+            {
+                Console.SetWindowSize(80, 25);
+                Console.SetBufferSize(80, 25);
+            }
             Console.CursorVisible = false;
 
             Game game = new Game();
