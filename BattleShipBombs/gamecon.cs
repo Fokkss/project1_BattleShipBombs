@@ -17,7 +17,7 @@ namespace gameCon
 
         private Bombs bomb = new Bombs();
 
-        public bool dlsEnabled;
+        public bool DLCEnabled;
 
         public void Start()
         {
@@ -48,11 +48,11 @@ namespace gameCon
             CenterText("- Ships cannot touch each other");
             CenterText("- Take turns entering coordinates");
             CenterText("- Receive an extra turn when you hit a ship");
-            CenterText("- After 4 or more misses receive 1 bomb! (Bombs DLS required)");
+            CenterText("- After 4 or more misses receive 1 bomb! (Bombs DLC required)");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Magenta;
-            CenterText("Enable Bombs DLS? (y/n)");
-            dlsEnabled = bomb.DLS();
+            CenterText("Enable Bombs DLC? (y/n)");
+            DLCEnabled = bomb.DLC();
             Console.ForegroundColor = ConsoleColor.Yellow;
             CenterText("Press any key to start...");
             Console.ReadKey();
@@ -649,29 +649,29 @@ namespace gameCon
 
     public class Bombs
     {
-        public bool dlsEnabled = false;
-        public bool DLS()
+        public bool DLCEnabled = false;
+        public bool DLC()
         {
-            bool DLSflag = false;
-            while (!DLSflag)
+            bool DLCflag = false;
+            while (!DLCflag)
             {
-                string DLSopt = GetInput().ToLower().Trim();
-                if (DLSopt != "y" && DLSopt != "n")
+                string DLCopt = GetInput().ToLower().Trim();
+                if (DLCopt != "y" && DLCopt != "n")
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     CenterText("Wrong format. Please, type 'y' or 'n'");
                     Console.ForegroundColor = ConsoleColor.Magenta;
                 }
 
-                if (DLSopt == "y")
+                if (DLCopt == "y")
                 {
-                    dlsEnabled = true;
+                    DLCEnabled = true;
                 }
 
-                DLSflag = true;
+                DLCflag = true;
             }
 
-            return dlsEnabled;
+            return DLCEnabled;
         }
 
         private string GetInput()
